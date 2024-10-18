@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "script.js",
   "scripts": {
+    "api": "cd api && npm ci",
+    "api:dev": "cd api && npm start",
     "dev": "serve ./src",
     "test": "cypress open",
     "test:ci": "cypress run"
