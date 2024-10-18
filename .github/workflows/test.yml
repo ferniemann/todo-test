@@ -1,0 +1,25 @@
+name: Test for Todo App
+
+# Wann soll Action getriggert werden?
+on:
+  push:
+    branches: ["*"]
+
+# Was soll ausgeführt werden?
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm run dev &
+      - run: npm run test:ci

@@ -4,7 +4,8 @@
   "main": "script.js",
   "scripts": {
     "dev": "serve ./src",
-    "test": "cypress open"
+    "test": "cypress open",
+    "test:ci": "cypress run"
   },
   "keywords": [],
   "author": "",
