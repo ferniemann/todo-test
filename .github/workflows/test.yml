@@ -20,7 +20,16 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm ci && npm run api
-      - run: npm run api:dev &
-      - run: npm run dev &
+      - name: Set up root project
+        working-directory: ./
+        run: npm ci
+      - name: Set up api
+        working-directory: ./api
+        run: npm ci
+      - name: Start api server
+        working-directory: ./api
+        run: npm start &
+      - name: Start dev server
+        working-directory: ./
+        run: npm run dev &
       - run: npm run test:ci
