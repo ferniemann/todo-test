@@ -25,7 +25,7 @@ jobs:
         run: npm ci
       - name: Set up api
         working-directory: ./api
-        run: npm ci
+        run: npm i
       - name: Start api server
         working-directory: ./api
         run: npm start &
